@@ -2,7 +2,7 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import 'dotenv/config'
 
-import banks from '../data/bank_list_update_mbv_1758784268922_41182.json' with { type: 'json' }
+import banks from './data/bank_list_update_mbv_1758784268922_41182.json' with { type: 'json' }
 
 const app = new Hono()
 
