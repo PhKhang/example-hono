@@ -15,7 +15,13 @@ app.get('/health', (c) => {
 })
 
 app.get('/api/banks', (c) => {
-  return c.json(banks)
+  return c.json(
+    {
+      version: '1',
+      count: banks.length,
+      data: banks
+    }
+  )
 })
 
 serve({
