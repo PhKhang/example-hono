@@ -1,0 +1,20 @@
+name: Deploy on VPS
+
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.PASSWORD }}
+          key:  ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          # Script to make an empty file with the current date and time as the file name
+          script: touch "$(date +'%Y-%m-%d_%H-%M-%S')"
